@@ -33,7 +33,7 @@ public class Parser {
                 sb.append(" ");
                 output.add(sb.toString().trim());
                 System.out.println(output);
-                System.exit(0);
+                // System.exit(0);
             } else if (token.equals(":")) {
                 StringBuilder sb = new StringBuilder(token);
                 while (i < tokens.length - 1) {
@@ -48,7 +48,7 @@ public class Parser {
     }
 
     public void parse (String command){
-        String[] tokens = command.split(" ");
+        String[] tokens = command.trim().split(" ");
         String[] newtokens = tokens_modifier(tokens).toArray(new String[0]);
         for (String token : newtokens){
             //System.out.println(token);
@@ -149,6 +149,7 @@ public class Parser {
                 }
             }
         } else {
+            System.out.println(token);
             System.err.println("Unknown command exception");
             System.exit(0);
         }
