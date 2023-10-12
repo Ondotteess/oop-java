@@ -32,9 +32,15 @@ public class Syntax {
             if (token.equals("if")) {
                 count++;
             }
-            if (token.equals("else")|| token.equals("then")) {
+            // if (token.equals("else") || token.equals("then")) {
+            //     count--;
+            //     if (count == 0 && token.equals("else")) return i;
+            // }
+            if (token.equals("then")){
                 count--;
-                if (count == 0) return i;
+            }
+            if (token.equals("else")){
+                if (count - 1 == 0) return i;
             }
             token = tokens[++i];
         }
@@ -45,7 +51,7 @@ public class Syntax {
         System.out.println(branch);
         String command = "";
         int first = stack.top();
-        if (first != 0){                              // если на вершине не ноль
+        if (first != 0){                                    // если на вершине не ноль
             String[] tokens = branch.split(" ");      // ищем границу ифа и пишем ее в команду
             StringBuilder sb = new StringBuilder();         // команду скармливаем парсеру
             int i = 0;
@@ -76,16 +82,18 @@ public class Syntax {
                 if (token.equals("if") || token.equals("do")) {
                     count++;
                 }
-                if (token.equals("then") || token.equals(";")) {
+                if (token.equals("then")) {        // было: if (token.equals("then") || token.equals(";")) {
                     count--;
-                    if (token.equals(";")) sb.append(" ").append(";");
-                    if (count == 0) break;
+                    if (count == 0) {           // было count == 1
+                        // sb.append(" ").append(";");
+                        break;
+                    }
                 }
                 sb.append(" ").append(token);
                 token = tokens[++i];
             }
             command = sb.toString().trim();
-            System.out.println(command);
+            // System.out.println(command);
             return command;
 
         }

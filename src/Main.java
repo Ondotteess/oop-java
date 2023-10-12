@@ -97,3 +97,25 @@ public class Main {
     }
 }
 
+/*
+    IF TESTS:
+
+    1 if 1 else 2 then ; print      V
+    0 if 1 else 2 then ; print      V
+
+    1 if 0 if . else 23 then ; else 2 then ;    V
+    0 if 0 else if . else 23 then ; then ;      V
+
+    1 if 0 if . else 23 dup dup then ; else 2 then ;    V
+    0 if 0 if . else 23 dup dup then ; else 2 then ;    V   else problem?
+
+    0 if 1 else 2 if 11 swap dup else . then ; then ; print             V
+    0 if . else 0 if . else 1 if 11 swap else . then ; then ; then ;    V
+
+    0 if . else 0 if . else 1 if 11 swap if 13 + if 0 else . then ; else . then ; else . then ; then ; then ;      V
+
+
+    WHILE TESTS:
+    
+
+ */
