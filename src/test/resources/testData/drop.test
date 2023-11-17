@@ -1,0 +1,7 @@
+in:
+1 2 3 4
+drop drop drop
+.
+
+out:
+1

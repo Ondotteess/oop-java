@@ -1,0 +1,7 @@
+in:
+." first" ." second line" cr
+." third"
+
+out:
+firstsecond line
+third

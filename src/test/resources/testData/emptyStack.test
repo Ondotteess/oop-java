@@ -1,0 +1,6 @@
+in:
+1 2 . . .
+out:
+2
+1
+Error: Not enough numbers for pop()
